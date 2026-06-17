@@ -4,28 +4,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const TABS = [
-  { href: "/", label: "Today", match: (p) => p === "/" },
-  { href: "/archive", label: "Archive", match: (p) => p.startsWith("/archive") || p.startsWith("/brief") },
-  { href: "/map", label: "Map", match: (p) => p.startsWith("/map") },
-  { href: "/learn", label: "Learn", match: (p) => p.startsWith("/learn") },
+  { href: "/", label: "New", icon: "New", match: (p) => p === "/" },
+  { href: "/money", label: "Money", icon: "Money", match: (p) => p.startsWith("/money") },
+  { href: "/entertainment", label: "Ent", icon: "Ent", match: (p) => p.startsWith("/entertainment") || p.startsWith("/map") },
+  { href: "/learn", label: "Learn", icon: "Learn", match: (p) => p.startsWith("/learn") },
 ];
 
 function Icon({ name, active }) {
   const stroke = active ? "#F5A524" : "currentColor";
   const common = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none", stroke, strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" };
   switch (name) {
-    case "Today":
-      // broadcast signal / live
+    case "New": // broadcast signal / live
       return (
         <svg {...common}><circle cx="12" cy="12" r="2.4" fill={active ? "#F5A524" : "none"} /><path d="M6.5 6.5a7.8 7.8 0 0 0 0 11M17.5 6.5a7.8 7.8 0 0 1 0 11M3.7 3.7a11.8 11.8 0 0 0 0 16.6M20.3 3.7a11.8 11.8 0 0 1 0 16.6" /></svg>
       );
-    case "Archive":
+    case "Money":
       return (
-        <svg {...common}><rect x="3.5" y="4.5" width="17" height="4" rx="1.2" /><path d="M5.5 8.5v9.2a1.8 1.8 0 0 0 1.8 1.8h9.4a1.8 1.8 0 0 0 1.8-1.8V8.5M10 12.5h4" /></svg>
+        <svg {...common}><path d="M12 3.5v17M15.5 7.2c-.7-1-2-1.6-3.5-1.6-2 0-3.6 1.1-3.6 2.7 0 1.7 1.5 2.4 3.6 2.9 2.1.5 3.7 1.2 3.7 3 0 1.7-1.7 2.8-3.8 2.8-1.7 0-3-.6-3.7-1.7" /></svg>
       );
-    case "Map":
+    case "Ent": // clapperboard
       return (
-        <svg {...common}><path d="M4 5.5 9.2 4l5.6 1.8L20 4v14l-5.2 1.6L9.2 18 4 19.5zM9.2 4v14M14.8 5.8v13.8" /></svg>
+        <svg {...common}><rect x="3.5" y="8.5" width="17" height="11" rx="1.6" /><path d="M3.9 8.5 6 4.7l3.4 1.4M9.4 6.1 12.8 4.6l2 3.6M15.6 8 19 6.5l1.2 2" /></svg>
       );
     case "Learn":
       return (
@@ -56,12 +55,8 @@ export default function Nav() {
                   active ? "bg-ink-600/70 text-fg" : "text-faint hover:text-muted"
                 }`}
               >
-                <Icon name={t.label} active={active} />
-                <span
-                  className={`font-mono text-[10px] uppercase tracking-[0.16em] ${
-                    active ? "text-signal" : ""
-                  }`}
-                >
+                <Icon name={t.icon} active={active} />
+                <span className={`font-mono text-[10px] uppercase tracking-[0.16em] ${active ? "text-signal" : ""}`}>
                   {t.label}
                 </span>
               </Link>

@@ -39,7 +39,13 @@ AI. Run breaking/recency searches before anything else:
 
 **Then Lane 2 (tailored):**
 - Tools: Product Hunt, GitHub Trending, There's An AI For That, Future Tools.
-- Money: a16z, Y Combinator (RFS), Indie Hackers, Greg Isenberg, founder threads, vertical-agent reports.
+- Money — two angles, BOTH required every time:
+  1. **How people are making money with AI right now** (the broad landscape, included on merit): what
+     AI services/agencies are getting paid for AND which AI-native companies/products are winning —
+     a16z, YC RFS, Indie Hackers, Greg Isenberg, agency/founder threads on X, vertical-agent reports,
+     real revenue case studies. Lead with what's actually working in the market.
+  2. **His tailored plays**: what Triseno could package for its verticals (construction, e-commerce,
+     events) or sell via his broadcast network.
 - Entertainment/broadcast — cover the **whole production stack**, not just camera/video. Search across:
   - Video/camera: gen-video (Runway / Luma / Kling / Pika / Veo / Higgsfield), robotic/PTZ + AI tracking,
     media servers (disguise/Watchout), playback.
@@ -103,8 +109,22 @@ Why it's big: <significance to the field>.
 3. <optional third>
 ```
 
-Rules: bold headlines, one tight sentence each, `Why it's big:` in Lane 1 and `→ For you:` in Lane 2,
-real links, phone-scannable. No filler caveats. Sharp ops partner, not a newsletter.
+**Item formatting (so the dashboard renders each cleanly).** Rank items most-important-first. Write
+each item with a **blank line between every part**, and separate items with a `---` line:
+
+```
+**<Headline>** — one tight sentence of what it is.
+
+Why it's big: <significance>.          (Lane 1)   ·   → For you: <his play>.   (Lane 2)
+
+<link>
+
+---
+```
+
+Bold headlines, `Why it's big:` in Lane 1 and `→ For you:` in Lane 2, real links, phone-scannable. No
+filler caveats. No hype. Sharp ops partner, not a newsletter. Keep the exact section headers above —
+the dashboard splits the brief into tabs by them.
 
 ## Step 6 — Archive
 Save to `briefings/YYYY-MM-DD.md`. If today's file exists, append a timestamped update instead of

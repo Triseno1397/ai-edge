@@ -68,8 +68,11 @@ Maintain `strategy/disruption-map.md` as the living record of that map.
 - **Power & Policy** — lab strategy, market shifts, regulation, safety/governance moves worth knowing.
 
 ### LANE 2 — Your Edge (tailored to him & Triseno)
-- **Money Opportunities** — general AI money plays + plays specific to Triseno, his verticals
-  (construction, e-commerce, events), and his broadcast network. Frame as a service/product/tool he could ship.
+- **Money Opportunities** — two flavors, BOTH every time: (1) **how people are making money with AI
+  right now** — the broad landscape, included on merit: AI services/agencies implementing for clients
+  AND AI-native companies/products, i.e. what's actually getting paid for; (2) **plays tailored to him**
+  — what Triseno could ship to its verticals (construction, e-commerce, events) or sell via his
+  broadcast network. Lead with what's working in the market, then his angle.
 - **Entertainment-Industry AI (the disruption lane)** — AI across the *entire* production stack, not
   just camera/video: audio, lighting, rigging/staging, scenic, LED/video walls, media servers,
   switching/replay, graphics, power, IT/networking & IP video, transmission/streaming, post, and
@@ -80,8 +83,10 @@ Maintain `strategy/disruption-map.md` as the living record of that map.
 ## Output rules (this is what "easy to read" means here)
 - Lead with a **TL;DR** of 3–5 bullets — the things he'd regret not knowing, frontier news first.
 - Then **Lane 1 (The AI World)**, then **Lane 2 (Your Edge)**, clearly separated with headers.
-- Each item: **bold headline** → one tight sentence of what it is → a `Why it's big:` line (Lane 1)
-  or `→ For you:` line (Lane 2) → a link. 2–4 items per section. Quality over volume.
+- Each item is its own block, ranked most-important-first: **bold headline** — one tight sentence; then
+  a `Why it's big:` line (Lane 1) or `→ For you:` line (Lane 2); then a link. Put a **blank line between
+  each part** and a `---` line between items so the dashboard cards them. 2–4 items per section. Quality
+  over volume.
 - End with **"Do This Week"**: 1–3 concrete actions ranked by payoff (drawn from Lane 2).
 - Keep it scannable on a phone. Short lines. No walls of text. No filler caveats.
 

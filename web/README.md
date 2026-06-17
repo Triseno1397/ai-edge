@@ -29,15 +29,15 @@ npm run dev          # http://localhost:3000  (syncs content first)
 
 ## Deploy
 
-Already deployed — **https://ai-edge-tau.vercel.app** (Vercel project `trisenos-projects/ai-edge`),
-shipped from this folder with the Vercel CLI.
+Live at **https://ai-edge-tau.vercel.app** (Vercel project `trisenos-projects/ai-edge`).
 
-**Redeploy** (after a new briefing): `npm run deploy` from `web/`, or `/publish` in Claude Code. The
-deploy pre-syncs the desk's markdown into `content/` and uploads it, so the build ships your latest
-briefings even though they live outside `web/` in git.
+The project is **connected to GitHub** (`Triseno1397/ai-edge`) with **Root Directory = `web`**, so
+**every push to `main` auto-deploys.** A git build checks out the whole repo and runs the prebuild
+sync, which reads `../briefings` etc. — so your latest content ships automatically. A daily routine
+generates the morning brief and pushes, so the phone is current without you doing anything.
 
-**From a fresh clone**, re-link once with `vercel link --project ai-edge` (needs `vercel login`), then
-`npm run deploy`.
+- **Out-of-cycle update:** `/publish` in Claude Code (commit + push).
+- **Manual CLI fallback** (bypasses git): `npm run deploy` from `web/` does a direct `vercel --prod`.
 
 **Privacy:** the site is on a public, unguessable URL. To require a login, enable Vercel **Deployment
 Protection** (Project → Settings → Deployment Protection). Add to Home Screen on your phone for an
