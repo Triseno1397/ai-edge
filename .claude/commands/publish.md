@@ -1,13 +1,19 @@
-Publish the desk to the mobile dashboard. The web viewer (in `web/`) is deployed on Vercel and rebuilds
-from the GitHub repo, so "publishing" = committing the desk's latest markdown and pushing.
+Publish the desk to the live mobile dashboard: https://ai-edge-tau.vercel.app
+(Vercel project `trisenos-projects/ai-edge`, deployed from `web/` via the Vercel CLI).
 
 Do this:
-1. Run `git status` to see what changed (new/updated files in `briefings/`, `learning/`, `strategy/`,
-   `profile/`).
-2. Stage everything with `git add -A`.
-3. Commit with a dated, descriptive message — e.g. `desk: brief 2026-06-17` (use the newest briefing
-   date, or summarize what changed if it wasn't a briefing).
-4. Push to `origin`. Vercel auto-builds and the new content appears on the phone in ~30–60s.
+1. **Back up + history.** `git add -A`, commit with a dated message (e.g. `desk: brief 2026-06-17` —
+   use the newest briefing date or summarize the change), and `git push` to `origin`
+   (private repo `Triseno1397/ai-edge`).
+2. **Deploy the dashboard.** Run `npm --prefix web run deploy`. That syncs the latest
+   `briefings/` / `learning/` / `strategy/` into `web/content/` and runs `vercel --prod`. New content
+   is live in ~40s.
+3. Report the production URL from the CLI output.
 
-If there is no `origin` remote yet, stop and tell me — I still need to create the private GitHub repo
-and connect Vercel (one-time setup). Never push the repo public; briefings are private.
+Notes:
+- The web viewer never generates anything — it only renders what the desk has produced. Run `/brief`,
+  `/disrupt`, or `/learn` FIRST, then `/publish`.
+- Needs the Vercel CLI logged in (already set up as `triseno1397`). If `vercel` errors with auth, the
+  one-time fix is `vercel login`.
+- The live site is currently on a public (unguessable) URL. If asked to lock it down, use Vercel
+  Deployment Protection (Project → Settings → Deployment Protection).

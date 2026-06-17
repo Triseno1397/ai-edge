@@ -8,16 +8,16 @@ It does **not** generate anything. Generation stays in Claude Code (`/brief`, `/
 This is the reading surface.
 
 ## How content gets here
-The desk's markdown lives at the repo root. At build time, `scripts/sync-content.mjs` copies
-`../briefings`, `../learning`, `../strategy`, and `../profile` into `web/content/`, and every page is
-pre-rendered to static HTML. So:
+The desk's markdown lives at the repo root. `scripts/sync-content.mjs` copies `../briefings`,
+`../learning`, `../strategy`, and `../profile` into `web/content/`, and every page is pre-rendered to
+static HTML. So:
 
 ```
-Claude Code (/brief)  →  briefings/2026-06-17.md  →  git push  →  Vercel rebuild  →  live on your phone
+Claude Code (/brief)  →  briefings/2026-06-17.md  →  /publish  →  vercel --prod  →  live on your phone
 ```
 
-New briefing on your phone = one push. From the project root, run `/publish` in Claude Code (or
-`git add -A && git commit -m "desk: <date>" && git push`).
+New briefing on your phone = run `/publish` in Claude Code, or directly:
+`npm --prefix web run deploy` (syncs content, then `vercel --prod`).
 
 ## Run it locally
 ```bash
@@ -27,14 +27,21 @@ npm run dev          # http://localhost:3000  (syncs content first)
 ```
 `npm run build` produces the production build; `npm start` serves it.
 
-## Deploy to Vercel (one-time)
-1. Push this repo to a **private** GitHub repo (briefings are personal).
-2. In Vercel: **New Project → import the repo**.
-3. Set **Root Directory = `web`**. Framework preset auto-detects **Next.js**. No env vars needed.
-4. Deploy. You get a URL like `ai-edge.vercel.app` — open it on your phone and **Add to Home Screen**.
+## Deploy
 
-Because Root Directory is `web/`, Vercel still checks out the whole repo, so the prebuild step can read
-`../briefings` etc. After the first deploy, every `git push` redeploys automatically.
+Already deployed — **https://ai-edge-tau.vercel.app** (Vercel project `trisenos-projects/ai-edge`),
+shipped from this folder with the Vercel CLI.
+
+**Redeploy** (after a new briefing): `npm run deploy` from `web/`, or `/publish` in Claude Code. The
+deploy pre-syncs the desk's markdown into `content/` and uploads it, so the build ships your latest
+briefings even though they live outside `web/` in git.
+
+**From a fresh clone**, re-link once with `vercel link --project ai-edge` (needs `vercel login`), then
+`npm run deploy`.
+
+**Privacy:** the site is on a public, unguessable URL. To require a login, enable Vercel **Deployment
+Protection** (Project → Settings → Deployment Protection). Add to Home Screen on your phone for an
+app-like icon.
 
 ## Views
 - **Today** — the latest briefing, framed like a live rundown.

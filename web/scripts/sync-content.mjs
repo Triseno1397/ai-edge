@@ -2,6 +2,10 @@
 // web/content/ so the Next app can read it at build time. Runs automatically on
 // `predev` and `prebuild`. Resolves paths relative to this script, so it works
 // regardless of the current working directory (local or Vercel).
+//
+// Non-destructive by design: a source folder is only refreshed if it exists. On
+// Vercel (CLI deploy), the repo-root sources aren't in the upload, so the
+// content/ already uploaded with the deploy is left intact rather than wiped.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -19,23 +23,20 @@ const MAP = {
   profile: "profile",
 };
 
-function reset(dir) {
-  fs.rmSync(dir, { recursive: true, force: true });
-  fs.mkdirSync(dir, { recursive: true });
-}
+fs.mkdirSync(contentDir, { recursive: true });
 
-reset(contentDir);
-
-let copied = 0;
+let refreshed = 0;
+let kept = 0;
 for (const [src, dest] of Object.entries(MAP)) {
   const from = path.join(repoRoot, src);
   const to = path.join(contentDir, dest);
   if (!fs.existsSync(from)) {
-    console.warn(`[sync-content] skip (missing): ${src}`);
+    kept += 1; // keep whatever was uploaded with the deploy
     continue;
   }
+  fs.rmSync(to, { recursive: true, force: true });
   fs.cpSync(from, to, { recursive: true });
-  copied += 1;
+  refreshed += 1;
 }
 
-console.log(`[sync-content] synced ${copied} source folder(s) into web/content/`);
+console.log(`[sync-content] refreshed ${refreshed} source folder(s); kept ${kept} as-is`);

@@ -1,0 +1,9 @@
+# Exclude only build artifacts and local cruft from the upload. NOTE: content/
+# IS uploaded (it's pre-synced before deploy) so the desk's markdown ships even
+# though it lives outside web/ in git.
+node_modules
+.next
+out
+.git
+.vercel
+.DS_Store

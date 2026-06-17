@@ -10,7 +10,8 @@
     "prebuild": "node scripts/sync-content.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "node scripts/sync-content.mjs && vercel --prod --yes"
   },
   "dependencies": {
     "geist": "^1.3.1",
