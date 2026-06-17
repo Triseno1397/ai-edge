@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: #0a0a0b;
+  color: #ececee;
+  min-height: 100dvh;
+  /* broadcast control-surface backdrop: faint amber signal glow at the top,
+     over a fine engineering grid. no decorative gradients. */
+  background-image:
+    radial-gradient(125% 85% at 50% -12%, rgba(245, 165, 36, 0.06), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 64px);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(245, 165, 36, 0.28);
+  color: #fff;
+}
+
+/* slim, recessive scrollbars to match the instrument-panel feel */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+@layer components {
+  /* monospace channel/rundown label */
+  .kicker {
+    @apply font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-faint;
+  }
+
+  .panel {
+    @apply rounded-xl border border-line bg-ink-800/55 backdrop-blur-[2px];
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-line bg-ink-700/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted;
+  }
+
+  /* maturity tags on the disruption map */
+  .tag {
+    @apply inline-flex items-center rounded border px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] align-middle;
+  }
+  .tag-now {
+    @apply tag border-now/30 bg-now/10 text-now;
+  }
+  .tag-near {
+    @apply tag border-near/30 bg-near/10 text-near;
+  }
+  .tag-horizon {
+    @apply tag border-horizon/30 bg-horizon/10 text-horizon;
+  }
+
+  /* the live tally light on Today */
+  .tally-dot {
+    @apply inline-block h-2 w-2 rounded-full bg-tally animate-tally;
+  }
+
+  /* hairline rule with a mono caption, broadcast lower-third style */
+  .rule {
+    @apply h-px w-full bg-line;
+  }
+}

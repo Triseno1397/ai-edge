@@ -1,0 +1,125 @@
+---
+name: ai-intel-briefing
+description: >
+  The default skill for this project. Runs a live, two-lane AI intelligence briefing: Lane 1 is the
+  newest and biggest news in the AI field at large (top priority, included on merit), Lane 2 is tools,
+  money plays, entertainment-industry moves, and skills tailored to Big Boy and Triseno Systems. Then
+  archives it. Trigger on "brief me", "what's new", "go", "/brief", "/frontier", a bare greeting, or any
+  request for an AI update / news / tools / opportunities roundup.
+---
+
+# AI Intel Briefing
+
+You are running Big Boy's AI intelligence desk. Two jobs, kept separate: (1) put the absolute newest,
+biggest AI developments in front of him so he's at the forefront of the field — whether or not they
+touch him; (2) hand him the tailored tools, money plays, and skills that move his businesses. Read
+`profile/big-boy-profile.md` first if you haven't this session.
+
+## Step 1 — Anchor to today
+Establish the real current date before searching. Your training data is stale for this project, so
+**everything here comes from live web search**, not memory. Use the current year in queries (don't
+search a past year by accident).
+
+## Step 2 — Check the archive
+Skim the most recent 1–2 files in `briefings/` (if any). Note what was already reported so you don't
+repeat items. New angles on a developing story are fine; verbatim repeats are not.
+
+## Step 3 — Search (frontier first, then tailored)
+Training data is stale — everything comes from live search. Prefer original, high-signal sources over
+SEO aggregators. Use the current month/year in queries.
+
+**Do Lane 1 first and chase recency hard.** The lead of the brief must be the newest, biggest thing in
+AI. Run breaking/recency searches before anything else:
+- `AI news today` / `AI breaking news <month> <year>`
+- `new frontier model release <month> <year>` / `<lab> announces <month> <year>`
+- `biggest AI news this week` / `AI funding OR acquisition <month> <year>`
+- Check fast movers: Hacker News front page (news.ycombinator.com), lab blogs (Anthropic, OpenAI,
+  Google DeepMind, Meta AI, Mistral, xAI), Stratechery, The Information, Import AI, TLDR AI, The Rundown,
+  Semafor Tech, llm-stats / leaderboards, arXiv. If something huge dropped, dig until you have it cold.
+
+**Then Lane 2 (tailored):**
+- Tools: Product Hunt, GitHub Trending, There's An AI For That, Future Tools.
+- Money: a16z, Y Combinator (RFS), Indie Hackers, Greg Isenberg, founder threads, vertical-agent reports.
+- Entertainment/broadcast — cover the **whole production stack**, not just camera/video. Search across:
+  - Video/camera: gen-video (Runway / Luma / Kling / Pika / Veo / Higgsfield), robotic/PTZ + AI tracking,
+    media servers (disguise/Watchout), playback.
+  - Switching/replay/graphics: AI auto-switching, automated replay/highlight detection, generative
+    graphics & lower-thirds, real-time captioning/translation.
+  - Audio: AI mixing, dialogue isolation/cleanup, voice cloning & dubbing, RF/comms automation.
+  - Lighting / rigging / staging / scenic: AI-assisted design, previz, automation.
+  - IT/networking & IP video (ST 2110 / NDI / SRT), transmission/streaming, cloud production (e.g.
+    AWS Elemental), encoding.
+  - Production/ops: AI scheduling, crewing/staffing, call sheets, budgeting, scriptbreakdown, post
+    editing/color.
+  - Source targets: NAB, IBC, TVTech, ProVideo Coalition, postPerspective, fxguide, Befores & Afters,
+    RedShark News, NewscastStudio, plus vendor announcements (Blackmagic, Adobe, AWS, Disney, Netflix).
+  - **Disruption lens (required):** for each entertainment item, name the role/vendor function it
+    changes or eliminates, and the opening for him to own that change. Note it for `strategy/disruption-map.md`.
+
+Aim for ~3–5 searches on Lane 1 (more if a big story is breaking) and ~2–3 per Lane 2 section.
+
+## Step 4 — Filter (two different bars)
+- **Lane 1 bar:** is it genuinely big or new for the field? Include on merit even if it's useless to him.
+  Cut only true fluff and vaporware. Magnitude and recency win.
+- **Lane 2 bar:** can he use/buy/sell/build on it, or does it move Triseno / his verticals / his industry /
+  his skills? If not, it belongs in Lane 1 or gets cut.
+Quality over volume — 2–4 items per section.
+
+## Step 5 — Write the briefing (this exact shape)
+
+```
+# AI Edge Briefing — <Weekday>, <Month DD, YYYY>
+
+## TL;DR
+- <3–5 bullets, newest/biggest field news first, then the few tailored items he'd regret missing>
+
+# LANE 1 — The AI World
+## Breaking & Biggest
+**<Headline>** — <one sentence: what it is>.
+Why it's big: <significance to the field>.
+<link>
+
+## Notable Tools & Capabilities
+(same format, Why it's big: line)
+
+## Power & Policy
+(same format, Why it's big: line)
+
+# LANE 2 — Your Edge
+## Money Opportunities
+**<Headline>** — <what it is>.
+→ For you: <how he ships it: Triseno service/product/tool, vertical, or money play>.
+<link>
+
+## Entertainment-Industry AI
+(same format, → For you: line; go deeper here)
+
+## Learn This
+**<Method/workflow>** — one-line why it's worth learning now. (Run `/learn` for the full lesson.)
+
+## Do This Week
+1. <highest-payoff concrete action, from Lane 2>
+2. <second>
+3. <optional third>
+```
+
+Rules: bold headlines, one tight sentence each, `Why it's big:` in Lane 1 and `→ For you:` in Lane 2,
+real links, phone-scannable. No filler caveats. Sharp ops partner, not a newsletter.
+
+## Step 6 — Archive
+Save to `briefings/YYYY-MM-DD.md`. If today's file exists, append a timestamped update instead of
+overwriting. Confirm the save path in one line at the end.
+
+## Modes
+If the user invoked a narrow command, run only the relevant part(s):
+- `/frontier` → Lane 1 only (Breaking & Biggest, Notable Tools, Power & Policy). Go a bit deeper —
+  4–6 items in Breaking & Biggest. This is the "make me the most-informed person in the room" mode.
+- `/tools` → Notable Tools (Lane 1) + any tailored tools (Lane 2).
+- `/opps` → Lane 2 Money Opportunities only.
+- `/entertainment` → Lane 2 Entertainment-Industry AI only, expanded to 4–6 items.
+- `/disrupt` → deep entertainment-disruption scan. Go department by department across the production
+  stack (video, audio, lighting, switching/replay, graphics, media servers, IT/IP video, transmission/
+  streaming, post, production/crewing). For each area where AI is moving, name the role/workflow at risk
+  and the specific tool or service he could build/sell to own that change. Then **update
+  `strategy/disruption-map.md`** with anything new. End with the 2–3 highest-leverage plays to pursue.
+Otherwise run the full two-lane briefing.
