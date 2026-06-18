@@ -21,6 +21,7 @@ const MAP = {
   learning: "learning",
   strategy: "strategy",
   profile: "profile",
+  answers: "answers",
 };
 
 fs.mkdirSync(contentDir, { recursive: true });

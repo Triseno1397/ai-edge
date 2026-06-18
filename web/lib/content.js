@@ -82,6 +82,26 @@ export function getDoc(rel) {
   return splitTitle(raw);
 }
 
+// Answers to ad-hoc questions, written by the "ask" runs to answers/<id>.md.
+// Filename is a millisecond timestamp; newest first.
+export function getAnswers() {
+  const dir = path.join(CONTENT, "answers");
+  let files = [];
+  try {
+    files = fs.readdirSync(dir).filter((f) => /^\d+.*\.md$/.test(f));
+  } catch {
+    return [];
+  }
+  const items = files.map((f) => {
+    const raw = fs.readFileSync(path.join(dir, f), "utf8");
+    const id = f.replace(/\.md$/, "");
+    const { title, body } = splitTitle(raw);
+    return { id, slug: id, title: title || "Answer", body };
+  });
+  items.sort((a, b) => (Number(a.id) < Number(b.id) ? 1 : -1));
+  return items;
+}
+
 export const docs = {
   map: () => getDoc("strategy/disruption-map.md"),
   curriculum: () => getDoc("learning/curriculum.md"),

@@ -14,6 +14,11 @@ export function Brandline({ right }) {
         {right ? (
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">{right}</span>
         ) : null}
+        <Link href="/ask" aria-label="Answers" className="text-faint transition-colors hover:text-fg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 5.5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 3.2V16.5a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" />
+          </svg>
+        </Link>
         <Link
           href="/archive"
           aria-label="Briefing archive"

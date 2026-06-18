@@ -2,6 +2,7 @@ import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import Nav from "./components/Nav";
+import Console from "./components/Console";
 
 export const metadata = {
   title: "AI Edge — Intelligence Desk",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
         <div className="mx-auto flex min-h-[100dvh] max-w-desk flex-col px-5 pb-28 pt-[max(env(safe-area-inset-top),1rem)] sm:pb-16">
           {children}
         </div>
+        <Console />
         <Nav />
       </body>
     </html>

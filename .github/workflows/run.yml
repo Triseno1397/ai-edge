@@ -1,0 +1,61 @@
+name: AI Edge Run
+
+# Triggered on demand from the dashboard (Console -> /api/run -> repository_dispatch).
+# Runs Claude Code headless on the user's subscription (CLAUDE_CODE_OAUTH_TOKEN),
+# generates a briefing or answers a question, then commits + pushes. The push
+# auto-deploys via the Vercel git integration.
+on:
+  repository_dispatch:
+    types: [ai-edge-run]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-edge-run
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Generate
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CI: "true"
+          MODE: ${{ github.event.client_payload.mode }}
+          QUESTION: ${{ github.event.client_payload.question }}
+          RUN_ID: ${{ github.event.client_payload.id }}
+        run: |
+          set -e
+          DATE="$(date -u +%F)"
+          if [ "$MODE" = "ask" ]; then
+            PROMPT="You are the AI Edge desk (read CLAUDE.md and profile/big-boy-profile.md first for who the user is). Answer this question for him using LIVE web search — never from memory, your training data is stale. Be sharp, plain-spoken, ranked, no fluff; tie it to him and Triseno where it's relevant, but answer the question on its own merits first. QUESTION: \"$QUESTION\". Write the answer to answers/${RUN_ID}.md in EXACTLY this shape: first line a level-1 heading restating the question as a short title (# ...); then a line in italics '*Asked ${DATE}*'; then the answer in clean markdown with real links. Then stop — do not edit any other files."
+          else
+            PROMPT="You are the AI Edge desk. Read CLAUDE.md, .claude/skills/ai-intel-briefing/SKILL.md, and profile/big-boy-profile.md and follow them exactly. Produce today's full two-lane briefing using LIVE web search (never from memory) and write it to briefings/${DATE}.md using the EXACT section headers the dashboard parses (TL;DR; # LANE 1 — The AI World with Breaking & Biggest / Notable Tools & Capabilities / Power & Policy; # LANE 2 — Your Edge with Money Opportunities / Entertainment-Industry AI / Learn This; Do This Week). Item format: bold headline, blank line, a 'Why it's big:' (Lane 1) or '→ For you:' (Lane 2) line, blank line, a link, then a '---' between items. Rank most-important-first. Then stop."
+          fi
+          claude -p "$PROMPT" --dangerously-skip-permissions
+
+      - name: Commit & push
+        env:
+          MODE: ${{ github.event.client_payload.mode }}
+        run: |
+          git config user.name "AI Edge Bot"
+          git config user.email "ai-edge-bot@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes produced."
+          else
+            git commit -m "desk: ${MODE:-brief} run ($(date -u +%F))"
+            git push
+          fi
