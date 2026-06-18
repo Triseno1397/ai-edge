@@ -5,9 +5,9 @@
 export const dynamic = "force-dynamic";
 
 export async function POST(req) {
-  const token = process.env.GITHUB_DISPATCH_TOKEN;
-  const secret = process.env.RUN_SECRET;
-  const repo = process.env.GITHUB_REPO || "Triseno1397/ai-edge";
+  const token = process.env.GITHUB_DISPATCH_TOKEN?.trim();
+  const secret = process.env.RUN_SECRET?.trim();
+  const repo = (process.env.GITHUB_REPO || "Triseno1397/ai-edge").trim();
 
   if (!token || !secret) {
     return Response.json({ error: "Server not configured. Set GITHUB_DISPATCH_TOKEN and RUN_SECRET." }, { status: 500 });

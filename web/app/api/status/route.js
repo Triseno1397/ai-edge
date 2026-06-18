@@ -3,8 +3,8 @@
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const token = process.env.GITHUB_DISPATCH_TOKEN;
-  const repo = process.env.GITHUB_REPO || "Triseno1397/ai-edge";
+  const token = process.env.GITHUB_DISPATCH_TOKEN?.trim();
+  const repo = (process.env.GITHUB_REPO || "Triseno1397/ai-edge").trim();
   if (!token) {
     return Response.json({ error: "Server not configured." }, { status: 500 });
   }
