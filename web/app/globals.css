@@ -75,6 +75,23 @@ body {
     @apply tag border-horizon/30 bg-horizon/10 text-horizon;
   }
 
+  /* discipline tags on creative items — medium + side of the business */
+  .tag-ads {
+    @apply tag border-signal/30 bg-signal/10 text-signal;
+  }
+  .tag-film {
+    @apply tag border-horizon/30 bg-horizon/10 text-horizon;
+  }
+  .tag-image {
+    @apply tag border-now/30 bg-now/10 text-now;
+  }
+  .tag-video {
+    @apply tag border-motion/30 bg-motion/10 text-motion;
+  }
+  .tag-audio {
+    @apply tag border-line bg-ink-700/70 text-muted;
+  }
+
   /* the live tally light on Today */
   .tally-dot {
     @apply inline-block h-2 w-2 rounded-full bg-tally animate-tally;

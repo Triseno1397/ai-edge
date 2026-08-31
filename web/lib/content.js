@@ -106,5 +106,7 @@ export const docs = {
   map: () => getDoc("strategy/disruption-map.md"),
   curriculum: () => getDoc("learning/curriculum.md"),
   progress: () => getDoc("learning/progress.md"),
+  vault: () => getDoc("creative/prompt-vault.md"),
+  playbook: () => getDoc("creative/playbook.md"),
   profile: () => getDoc("profile/big-boy-profile.md"),
 };

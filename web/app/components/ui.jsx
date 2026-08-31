@@ -1,15 +1,22 @@
 // Presentational primitives shared across views. Server-safe (no hooks).
 import Link from "next/link";
+import Menu from "./Menu";
 
+// Sticky, full-bleed within the page column: with no bottom bar, the menu has to
+// stay reachable no matter how far down the page you are. Owns the top safe-area
+// padding for every page (the layout container has none).
 export function Brandline({ right }) {
   return (
-    <div className="flex items-center justify-between pt-2">
-      <Link href="/" className="flex items-center gap-2.5">
-        <Logo />
-        <span className="font-mono text-[13px] font-semibold uppercase tracking-[0.32em] text-fg">
-          AI&nbsp;Edge
-        </span>
-      </Link>
+    <div className="sticky top-0 z-40 -mx-5 mb-1 flex items-center justify-between gap-2 border-b border-line/70 bg-ink-900/85 px-5 pb-2.5 pt-[max(env(safe-area-inset-top),0.75rem)] backdrop-blur-md">
+      <div className="flex min-w-0 items-center gap-1.5">
+        <Menu />
+        <Link href="/" className="flex items-center gap-2.5">
+          <Logo />
+          <span className="font-mono text-[13px] font-semibold uppercase tracking-[0.32em] text-fg">
+            AI&nbsp;Edge
+          </span>
+        </Link>
+      </div>
       <div className="flex items-center gap-3">
         {right ? (
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">{right}</span>

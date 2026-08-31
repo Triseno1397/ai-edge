@@ -30,12 +30,12 @@ export function FullBriefLink({ date }) {
 }
 
 // Shown on any topic tab when there's no briefing yet.
-export function EmptyTopic({ title, body }) {
+export function EmptyTopic({ title, body, hint }) {
   return (
     <EmptyState
       title={title}
       body={body || "Your morning brief lands here automatically each day. Want one right now? Run a briefing in Claude Code."}
-      hint="/brief"
+      hint={hint || "/brief"}
     />
   );
 }

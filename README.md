@@ -23,18 +23,25 @@ Just open the project and type any of these:
 | `/opps` | Money opportunities, tailored to Triseno |
 | `/entertainment` | Entertainment/broadcast AI, expanded |
 | `/disrupt` | Deep disruption scan across the whole production stack + updates the disruption map |
+| `/creative` | Deep gen-media scan for the creative agency — releases, what's going viral, viral prompts, craft — + updates the prompt vault and playbook |
 | `/learn` | Teach me one new AI method this session + log it to my curriculum |
 | `/deep <tool>` | Full deep dive on one tool |
 | `/publish` | Push the latest briefings/map/learning to your phone (commits + deploys the `web/` dashboard) |
 
 **Two lanes:** every full briefing leads with **Lane 1 — The AI World** (the newest, biggest
 developments, included whether or not they touch you) and then **Lane 2 — Your Edge** (tools, money,
-entertainment, and learning tailored to you and Triseno). The two are kept separate on purpose.
+entertainment, creative/gen-media, and learning tailored to you and Triseno). The two are kept separate
+on purpose.
 
 Every full briefing auto-saves to `briefings/YYYY-MM-DD.md`, and every lesson logs to
 `learning/progress.md`, so over time this folder becomes a record of how the field moved and how your
 skills compounded. You can ask Claude to search across past briefings ("what did we say about AI video
 tools last month?") or your learning log ("what challenges do I still have pending?").
+
+**Standing libraries** (they accumulate instead of rolling off with each briefing):
+`strategy/disruption-map.md` — where AI hits each production role and your angle to own it.
+`creative/prompt-vault.md` — prompts worth reusing, filed by the job they win.
+`creative/playbook.md` — craft fixes, filed by the problem they solve.
 
 ## Keep it sharp
 - Edit `profile/big-boy-profile.md` whenever your focus shifts. The briefings only get more tailored.
@@ -54,6 +61,9 @@ ai-edge/
 │   └── progress.md                    # running log of lessons + open challenges
 ├── strategy/
 │   └── disruption-map.md              # living map: where AI hits each production role + your angle to own it
+├── creative/
+│   ├── prompt-vault.md                # prompts that produce work — product ads, cinematic, stills, motion
+│   └── playbook.md                    # craft library: consistency, camera, grade, lipsync, finishing
 ├── web/                               # mobile dashboard (Next.js PWA) — read-only viewer, deploy on Vercel
 └── .claude/
     ├── skills/

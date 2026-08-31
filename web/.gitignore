@@ -5,7 +5,7 @@
 /.next/
 /out/
 
-# generated content (synced from ../briefings, ../learning, ../strategy at build)
+# generated content (synced from ../briefings, ../learning, ../strategy, ../creative at build)
 /content/
 
 # misc

@@ -28,6 +28,13 @@ change — not just interesting tools.
   agents, conversational agents, custom AI tooling, automation. Verticals I've targeted: construction
   and e-commerce. This is the main vehicle for monetizing AI. *Most "money opportunity" items should
   be framed as: could this become a Triseno service, product, or internal tool?*
+  - **Creative AI (agency service line).** Triseno also runs as a creative AI agency: **product ads for
+    brands across every category**, plus **short films and cinematic work**. Generated and hybrid
+    image/video, start to finish — concept, prompt, generation, finishing, delivery to client spec.
+    This is real client work, so treat gen-media items as production tools, not toys: commercial
+    licensing, resolution and delivery specs, revision cost, and brand/product consistency across a
+    campaign all matter. The `creative-scout` skill covers this lane; `creative/prompt-vault.md` and
+    `creative/playbook.md` are its standing libraries.
 - **Apache Rental Group** — broadcast equipment rental for live events (since 2018).
 - **La Vida Photo Booth** — photo booth rentals, LA area.
 - **Mil Apparel** — veteran-owned military apparel brand (Shopify). I do product photography via AI,
@@ -37,16 +44,22 @@ change — not just interesting tools.
 Broadcast/live: camera systems, video engineering, SDI/fiber, PTZ/robo, RF, IP video (SMPTE ST 2110,
 NDI, SRT), Blackmagic / AJA / Sony / Panasonic ecosystems, ATEM/Videohub/HyperDeck control.
 AI/dev: Claude Code, multi-agent architectures ("council of agents"), MCP, Firecrawl, React, Swift,
-prompt/agent design, lead-gen automation (Instantly, Apollo), Higgsfield for gen media.
+prompt/agent design, lead-gen automation (Instantly, Apollo).
+Gen media (agency side): Higgsfield end to end — Soul characters, product photoshoot, marketplace cards,
+Seedance video-to-video, Kling motion control — plus the wider image/video stack. Assume I know camera,
+lensing, lighting and grade vocabulary; use it.
 
 ## What "opportunity" means to me (rank highest)
 1. **Packageable Triseno services** — something I can sell to construction / e-commerce / events / SMB
    clients: agents, automation, AI-built sites, done-for-you AI ops.
 2. **Entertainment + AI plays** — using my broadcast network and skills: AI in live production,
    gen-video pipelines, virtual production, automated post, AI for content creators/studios.
-3. **Build-on-top tools** — APIs/platforms I can wrap into a product or internal tool.
-4. **Resale / agency arbitrage** — reselling or productizing an AI capability at margin.
-5. **Personal edge** — methods, workflows, and skills that make me faster and more capable.
+3. **Creative agency work** — anything that wins brand ad jobs or cinematic jobs, makes the output
+   look less like AI, or cuts the cost of a revision round. New formats I could sell to a brand next
+   week count as opportunities, not just tools.
+4. **Build-on-top tools** — APIs/platforms I can wrap into a product or internal tool.
+5. **Resale / agency arbitrage** — reselling or productizing an AI capability at margin.
+6. **Personal edge** — methods, workflows, and skills that make me faster and more capable.
 
 ## Interests / context
 Prediction markets (active Kalshi user — "sleeper mode" mispricing hunts). Hardware/security tinkering

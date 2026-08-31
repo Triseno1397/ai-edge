@@ -1,16 +1,16 @@
 # AI Edge — Mobile Dashboard
 
 A read-only, phone-first web viewer for the AI Edge desk. It renders the markdown the desk produces
-(`briefings/`, `learning/`, `strategy/`) as a dark, premium dashboard you can open anywhere — and
-install to your home screen as a PWA.
+(`briefings/`, `learning/`, `strategy/`, `creative/`) as a dark, premium dashboard you can open
+anywhere — and install to your home screen as a PWA.
 
-It does **not** generate anything. Generation stays in Claude Code (`/brief`, `/disrupt`, `/learn`).
-This is the reading surface.
+It does **not** generate anything. Generation stays in Claude Code (`/brief`, `/disrupt`, `/creative`,
+`/learn`). This is the reading surface.
 
 ## How content gets here
 The desk's markdown lives at the repo root. `scripts/sync-content.mjs` copies `../briefings`,
-`../learning`, `../strategy`, and `../profile` into `web/content/`, and every page is pre-rendered to
-static HTML. So:
+`../learning`, `../strategy`, `../creative`, and `../profile` into `web/content/`, and every page is
+pre-rendered to static HTML. So:
 
 ```
 Claude Code (/brief)  →  briefings/2026-06-17.md  →  /publish  →  vercel --prod  →  live on your phone
@@ -44,10 +44,24 @@ Protection** (Project → Settings → Deployment Protection). Add to Home Scree
 app-like icon.
 
 ## Views
-- **Today** — the latest briefing, framed like a live rundown.
-- **Archive** — every dated briefing, searchable.
-- **Map** — the entertainment disruption map with NOW / NEAR / HORIZON badges.
+Navigation is the ☰ drawer on the top-left of every page — there's no bottom bar.
+
+- **What's New** — Lane 1 of the latest briefing, framed like a live rundown.
+- **Money** — money plays plus "Do This Week."
+- **Entertainment** — production-stack AI, with a link into the Map.
+- **Creative** — gen-media for the agency, split into sub-tabs (Releases / Viral / Prompts / Craft).
+  Images render inline, YouTube and Vimeo play in place, TikTok/X/IG become cards, and prompts in
+  fenced blocks get a Copy button.
 - **Learn** — the curriculum (with a mastery meter) and the progress log.
+- **Libraries** — the disruption Map (NOW / NEAR / HORIZON badges), the Prompt Vault, and the Playbook.
+- **Archive / Answers** — every dated briefing, and answers to questions asked from the phone.
+
+### Rendering conventions the briefing must follow
+The parser in `lib/brief-parse.js` routes `##` section headers to tabs and `###` sub-headers to the
+Creative sub-tabs, so those headers have to stay exact (they're specified in `CLAUDE.md`). In
+`components/Markdown.jsx`: inline code spans matching `NOW/NEAR/HORIZON` or
+`IMAGE/VIDEO/AUDIO/ADS/FILM` become tag chips, a lone image or lone video link in a paragraph becomes
+media, and fenced blocks become copyable prompts.
 
 ## Stack
 Next.js 14 (App Router, static-rendered) · Tailwind · Geist Sans/Mono · react-markdown. No database, no

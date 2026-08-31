@@ -20,6 +20,7 @@ module.exports = {
         now: "#34D399",
         near: "#F5A524",
         horizon: "#5B9DFF",
+        motion: "#A78BFA",
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],

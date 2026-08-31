@@ -126,7 +126,7 @@ export default function Console() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Run the desk"
-        className="fixed right-4 bottom-24 z-50 flex items-center gap-2 rounded-full border border-signal/40 bg-signal/15 px-4 py-2.5 text-signal backdrop-blur-xl transition-colors hover:bg-signal/25 sm:bottom-7"
+        className="fixed right-4 bottom-[max(env(safe-area-inset-bottom),1rem)] z-50 flex items-center gap-2 rounded-full border border-signal/40 bg-signal/15 px-4 py-2.5 text-signal backdrop-blur-xl transition-colors hover:bg-signal/25 sm:bottom-7"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z" />

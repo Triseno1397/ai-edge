@@ -61,6 +61,22 @@ AI. Run breaking/recency searches before anything else:
     RedShark News, NewscastStudio, plus vendor announcements (Blackmagic, Adobe, AWS, Disney, Netflix).
   - **Disruption lens (required):** for each entertainment item, name the role/vendor function it
     changes or eliminates, and the opening for him to own that change. Note it for `strategy/disruption-map.md`.
+- Creative AI (his agency work — product ads for brands, plus short films and cinematic jobs). Four
+  angles, and you need all four:
+  1. **Releases & updates** — the gen-media stack: OpenAI/Sora, Google Veo & Flow, Runway, Luma,
+     Kling, Pika, Midjourney, Black Forest Labs (FLUX), Higgsfield, Seedance/ByteDance, Topaz,
+     ElevenLabs, Adobe Firefly, Freepik, Krea. Version bumps, new controls, pricing/API changes.
+  2. **What's going viral** — formats and specific pieces blowing up right now: AI ad spots, UGC-style
+     hooks, product demos, AI short films and trailers. Sources: r/aivideo, r/StableDiffusion,
+     creator threads on X, TikTok/IG/YouTube trend roundups, Curious Refuge, AI film festivals,
+     ad-teardown threads. Name the format, not just the clip.
+  3. **Viral prompts** — actual copy-paste prompts that are producing the looks people are chasing.
+     Prompt drops from model accounts, community prompt libraries, breakdown threads. Test the prompt
+     reads coherently before you log it; don't pass along fragments.
+  4. **Craft & tricks** — technique: character/product consistency, camera and motion control,
+     lighting and grade matching, lipsync/VO, upscale and finishing, review/delivery pipeline.
+  Check `creative/prompt-vault.md` and `creative/playbook.md` first so you don't re-report what's
+  already logged.
 
 Aim for ~3–5 searches on Lane 1 (more if a big story is breaking) and ~2–3 per Lane 2 section.
 
@@ -100,6 +116,15 @@ Why it's big: <significance to the field>.
 ## Entertainment-Industry AI
 (same format, → For you: line; go deeper here)
 
+## Creative AI
+
+### Releases & Updates
+### Going Viral
+### Viral Prompts
+### Craft & Tricks
+(2 items per sub-section in a normal brief. Keep all four `###` headers exactly — the dashboard
+turns them into sub-tabs. See "Creative item format" below.)
+
 ## Learn This
 **<Method/workflow>** — one-line why it's worth learning now. (Run `/learn` for the full lesson.)
 
@@ -126,9 +151,49 @@ Bold headlines, `Why it's big:` in Lane 1 and `→ For you:` in Lane 2, real lin
 filler caveats. No hype. Sharp ops partner, not a newsletter. Keep the exact section headers above —
 the dashboard splits the brief into tabs by them.
 
-## Step 6 — Archive
+**Creative item format (this section is visual — show the work).** Same block shape, plus tags and media:
+
+```
+**<Headline>** — one tight sentence.
+
+`VIDEO` `ADS`
+
+![<short caption>](<direct image URL>)
+
+<bare video URL on its own line>
+
+→ For you: <the ad build or film shot this changes, in his agency's terms>.
+
+<source link>
+
+---
+```
+
+- **Tags** go on their own line as inline-code spans. Medium: `IMAGE` `VIDEO` `AUDIO`. Business side:
+  `ADS` (brand/product work) or `FILM` (short-film/cinematic). One medium + one side is usually right.
+- **Images**: standard markdown image syntax with a **direct image URL** (ends in .jpg/.png/.webp) — a
+  link to an article page renders as a broken frame. Skip the image rather than guess a URL.
+- **Video**: put the URL **alone on its own line**. YouTube and Vimeo become tap-to-play players.
+  TikTok/X/Instagram can't be embedded — they render as a card that opens the post, so add a poster
+  image line above them when you have one.
+- **Prompts**: put the full prompt in a fenced code block so it gets a copy button. Never truncate a
+  prompt with "..." — either log the whole thing or don't log it.
+- Every creative item needs a `→ For you:` line framed to real agency work: a client product ad, a
+  UGC/paid-social hook, or a short-film/cinematic shot.
+
+## Step 6 — Archive & library upkeep
 Save to `briefings/YYYY-MM-DD.md`. If today's file exists, append a timestamped update instead of
-overwriting. Confirm the save path in one line at the end.
+overwriting.
+
+Then keep the two standing creative libraries current — they're what makes this compound:
+- Any prompt worth reusing → append to `creative/prompt-vault.md` under the right heading, in that
+  file's entry format (tags, model, date, "Use it for", "Swap", source).
+- Any technique worth reusing → append to `creative/playbook.md` under the problem it solves.
+Dedupe against what's already there; a better version of an existing entry replaces it rather than
+sitting beside it. Don't log a prompt or technique you couldn't verify — the libraries are only
+useful if everything in them actually works.
+
+Confirm the save paths in one line at the end.
 
 ## Modes
 If the user invoked a narrow command, run only the relevant part(s):
@@ -137,6 +202,8 @@ If the user invoked a narrow command, run only the relevant part(s):
 - `/tools` → Notable Tools (Lane 1) + any tailored tools (Lane 2).
 - `/opps` → Lane 2 Money Opportunities only.
 - `/entertainment` → Lane 2 Entertainment-Industry AI only, expanded to 4–6 items.
+- `/creative` → hand off to the `creative-scout` skill: a deep gen-media scan for his creative agency
+  (releases, viral formats, prompts, craft), 3–5 items per sub-section, and library upkeep.
 - `/disrupt` → deep entertainment-disruption scan. Go department by department across the production
   stack (video, audio, lighting, switching/replay, graphics, media servers, IT/IP video, transmission/
   streaming, post, production/crewing). For each area where AI is moving, name the role/workflow at risk

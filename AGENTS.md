@@ -12,7 +12,9 @@ Two things matter here, and they are **separate**:
 1. **Stay at the front of the whole field.** He wants the newest and most important AI news, period —
    whether or not it touches him personally. Being the most informed person in the room is the goal.
 2. **Turn that into leverage for him.** Surface the tools, opportunities, and skills tailored to
-   Triseno Systems, his broadcast/entertainment work, his e-commerce brands, and his own growth.
+   Triseno Systems, his broadcast/entertainment work, his creative AI agency (Triseno's gen-media
+   service line — product ads for brands, short films, cinematic work), his e-commerce brands, and his
+   own growth.
 
 Never collapse these into one. Big general news is NOT cut for lack of personal relevance — it gets
 its own lane. Tailored leverage gets its own lane. He reads both.
@@ -49,8 +51,8 @@ Maintain `strategy/disruption-map.md` as the living record of that map.
 4. **Run two separate lanes, every time:**
    - **The AI World** — the big, important developments in the field, included on merit *regardless of
      whether they touch him*. Do NOT cut major news just because it isn't personally relevant.
-   - **Your Edge** — tools, money plays, entertainment-industry moves, and skills tailored to him and
-     Triseno (see `profile/big-boy-profile.md`).
+   - **Your Edge** — tools, money plays, entertainment-industry moves, creative/gen-media intel, and
+     skills tailored to him and Triseno (see `profile/big-boy-profile.md`).
    Keep them visually distinct. He wants the whole picture AND his slice of it.
 5. **Signal over noise. No hype.** Skip press-release fluff and vaporware. But "big and important" is a
    valid reason to include something even if it's not actionable for him — that's the point of Lane 1.
@@ -78,6 +80,18 @@ Maintain `strategy/disruption-map.md` as the living record of that map.
   switching/replay, graphics, power, IT/networking & IP video, transmission/streaming, post, and
   production/crewing/scheduling. For each item, name the role or workflow it changes and where his
   opening is to own that change. His home turf and his disruption target; go deepest here.
+- **Creative AI** — the gen-media lane for his creative agency (product ads for brands, short films,
+  cinematic work). Four `###` sub-sections, always all four, in this order and with these exact headers:
+  `### Releases & Updates` (the image/video stack: Sora, Veo, Runway, Kling, Midjourney, FLUX,
+  Higgsfield, Seedance, Topaz, ElevenLabs, Firefly…), `### Going Viral` (formats and pieces blowing up
+  now — name the format, not just the clip), `### Viral Prompts` (whole copy-paste prompts in fenced
+  code blocks, never truncated, with the model they were written for), `### Craft & Tricks` (technique:
+  consistency, camera control, grade matching, lipsync, finishing, delivery).
+  **Show the work.** Every item carries tag chips on their own line — medium `IMAGE` `VIDEO` `AUDIO`,
+  business side `ADS` or `FILM` — plus media where it helps: markdown images need a **direct** image
+  URL, and a video URL goes **alone on its own line** (YouTube/Vimeo become tap-to-play; TikTok/X/IG
+  become a card, so put a poster image above those). Prompts and techniques worth keeping get filed
+  into `creative/prompt-vault.md` and `creative/playbook.md`.
 - **Learn This** — one method or workflow to level up on (or a pointer to run `/learn` for the full lesson).
 
 ## Output rules (this is what "easy to read" means here)
@@ -99,6 +113,8 @@ run broadcast trucks.
 - **`ai-intel-briefing`** — the full two-lane briefing. The default.
 - **`opportunity-scout`** — deep dive on monetization only, tailored to Triseno + his network.
 - **`tool-deep-dive`** — go deep on one named tool: what it is, cost, how he'd use it, verdict.
+- **`creative-scout`** — deep gen-media scan for the creative agency: releases, viral formats, viral
+  prompts, craft. Maintains the prompt vault and the playbook.
 - **`ai-learning`** — teaches one new AI method/workflow per session and builds a running curriculum.
 
 ## Slash commands
@@ -108,6 +124,7 @@ run broadcast trucks.
 - `/opps` — money opportunities (general + Triseno-tailored)
 - `/entertainment` — entertainment-industry AI
 - `/disrupt` — deep entertainment-disruption scan across the whole production stack; updates the disruption map
+- `/creative` — deep gen-media scan for the creative agency; updates the prompt vault and playbook
 - `/learn` — teach me one new AI method/workflow this session and log it to the curriculum
 - `/deep` — deep dive on a tool you name after it
 - `/publish` — push the latest briefings/map/learning to the mobile dashboard (commit + deploy `web/`)
@@ -115,5 +132,14 @@ run broadcast trucks.
 ## Mobile dashboard (`web/`)
 A read-only, phone-first web viewer (Next.js PWA) lives in `web/`. It renders the desk's markdown —
 briefings, disruption map, learning — as a dark premium dashboard, deployed on Vercel. It never
-generates anything; generation stays here. After a briefing, run `/publish` to commit and push so the
-new content shows up on the phone. Setup/deploy details: `web/README.md`.
+generates anything; generation stays here. After a briefing, run `/publish` to commit and
+push so the new content shows up on the phone. Setup/deploy details: `web/README.md`.
+
+The dashboard splits each briefing into topic tabs by its section headers — Lane 1 → **What's New**,
+Money Opportunities → **Money**, Entertainment-Industry AI → **Entertainment**, Creative AI →
+**Creative**, Learn This → **Learn** — so keep those section headers exact. Creative goes one level
+deeper: its four `###` sub-headers become sub-tabs inside that page, so those must be exact too.
+
+Navigation is a drawer behind the ☰ button on the top-left of every page (there's no bottom bar). It
+also carries the three standing libraries: the Disruption Map, the Prompt Vault (`creative/prompt-vault.md`)
+and the Creative Playbook (`creative/playbook.md`).

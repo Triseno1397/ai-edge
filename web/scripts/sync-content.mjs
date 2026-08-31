@@ -20,6 +20,7 @@ const MAP = {
   briefings: "briefings",
   learning: "learning",
   strategy: "strategy",
+  creative: "creative",
   profile: "profile",
   answers: "answers",
 };
