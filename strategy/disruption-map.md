@@ -14,6 +14,12 @@ industry change, it's to be the one changing it.
 - **Auto-framing / AI tracking on robotic & PTZ cams** — `NOW`. Threat to operator headcount on
   multi-cam shoots. → His angle: deploy/integrate AI-tracked robo systems; sell the configured rig +
   operating layer, not just the camera.
+- **Automated multi-cam switching** — `NOW` for single-sport, fixed-camera-plan productions (Spiideo
+  AutoDirector 1.0 for baseball/softball, Studio Automated's PTZ auto-switching — hardware-agnostic,
+  open API, Aug 2026). Still `NEAR`/open for mixed-format, multi-vendor corporate/broadcast shows with
+  variable rigs — that gap is narrowing but not closed. → His angle: this was flagged unsolved in prior
+  briefings; move now to own AI-assisted switching for mid-market corporate/event work before these
+  sports-native vendors expand out of pure sports.
 - **Gen-video at broadcast quality (Kling/Luma/Veo/Runway)** — `NOW`. Threat to B-roll, inserts, plates,
   some VFX. → His angle: a managed gen-video shot service for productions and brands; multi-model routing.
 - **Live vertical/clip generation (e.g. AWS Elemental Inference)** — `NOW`. Threat to clip editors. →
