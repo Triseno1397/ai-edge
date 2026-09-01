@@ -38,10 +38,15 @@ module.exports = {
           "0%, 100%": { opacity: "1", boxShadow: "0 0 0 0 rgba(255,69,58,0.55)" },
           "50%": { opacity: "0.65", boxShadow: "0 0 0 4px rgba(255,69,58,0)" },
         },
+        drawer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
       },
       animation: {
         rise: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both",
         tally: "pulse_tally 2s ease-in-out infinite",
+        drawer: "drawer 0.24s cubic-bezier(0.16,1,0.3,1) both",
       },
     },
   },

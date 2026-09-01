@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -134,7 +135,10 @@ export default function Menu() {
         </svg>
       </button>
 
-      {open ? (
+      {/* Portalled to <body>: the brandline this button sits in uses backdrop-blur,
+          and a backdrop-filter ancestor becomes the containing block for fixed
+          children — which would trap the drawer inside the header strip. */}
+      {open && typeof document !== "undefined" ? createPortal(
         <div
           className="fixed inset-0 z-[70] bg-black/60 backdrop-blur-sm"
           onClick={() => setOpen(false)}
@@ -143,7 +147,7 @@ export default function Menu() {
           <nav
             aria-label="Primary"
             onClick={(e) => e.stopPropagation()}
-            className="h-full w-[84%] max-w-xs overflow-y-auto border-r border-line bg-ink-800/95 px-3 pb-8 pt-[max(env(safe-area-inset-top),0.9rem)] shadow-[10px_0_50px_-20px_rgba(0,0,0,0.9)] animate-rise"
+            className="h-full w-[84%] max-w-xs overflow-y-auto border-r border-line bg-ink-800/95 px-3 pb-8 pt-[max(env(safe-area-inset-top),0.9rem)] shadow-[10px_0_50px_-20px_rgba(0,0,0,0.9)] animate-drawer"
           >
             <div className="mb-5 flex items-center justify-between px-2">
               <span className="font-mono text-[12px] font-semibold uppercase tracking-[0.3em] text-fg">
@@ -193,7 +197,8 @@ export default function Menu() {
               </div>
             ))}
           </nav>
-        </div>
+        </div>,
+        document.body
       ) : null}
     </>
   );
